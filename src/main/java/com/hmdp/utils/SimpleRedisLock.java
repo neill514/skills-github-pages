@@ -35,6 +35,7 @@ public class SimpleRedisLock implements ILock {
         Boolean success = stringRedisTemplate.opsForValue().setIfAbsent(KEY_PREFIX+name, threadId, timeoutSec, TimeUnit.SECONDS);
         return Boolean.TRUE.equals(success);
     }
+
     @Override
     public void unlock() {
        //调用lua脚本

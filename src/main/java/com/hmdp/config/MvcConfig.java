@@ -15,10 +15,13 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
+
     public void addInterceptors(InterceptorRegistry registry) {
         //登录拦截器
         registry.addInterceptor(new LoginInterceptor())
-                .excludePathPatterns("/shop/**",
+                .excludePathPatterns("/",
+                                     "/net",
+                                     "/shop/**",
                                      "/voucher/**",
                                      "/shop-type/**",
                                      "/upload/**",

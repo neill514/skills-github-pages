@@ -31,7 +31,7 @@ public class RedisIdWorker {
         //自增长
         long count=stringRedisTemplate.opsForValue().increment("icr:"+keyPrefix+":"+date);
         //拼接并返回
-        return timestamp<<COUNT_BITS|count;
+        return timestamp<<COUNT_BITS|count;//timestamp向左移动32位，count在后面自增长
     }
 
     public static void main(String[] args) {

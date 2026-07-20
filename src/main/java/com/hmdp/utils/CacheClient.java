@@ -67,7 +67,7 @@ public class CacheClient {
         //返回
         return r;
     }
-
+    //线程池
     private static final ExecutorService CACHE_REBUILD_EXECUTOR= Executors.newFixedThreadPool(10);
 
     public <R,ID> R queryWithLogicalExpire(String keyPrefix,ID id,Class<R> type,Function<ID,R> dbFallback,Long time, TimeUnit unit){
@@ -111,7 +111,6 @@ public class CacheClient {
                 }
             });
         }
-
         //返回过期的商铺信息
         return r;
     }

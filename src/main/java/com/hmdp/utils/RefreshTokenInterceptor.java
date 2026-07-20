@@ -20,7 +20,7 @@ public class RefreshTokenInterceptor implements HandlerInterceptor {
 
             //获取session
             /* HttpSession session = request.getSession();*/
-             //T获取请求头中的token
+             //获取请求头中的token
             String token=request.getHeader("authorization");
             if(token==null){
                 return true;
@@ -33,6 +33,7 @@ public class RefreshTokenInterceptor implements HandlerInterceptor {
 
              //判断用户是否存在
              if (userMap.isEmpty()) {
+                 //map返回空为true
                  return true;
              }
              // 将查询到的Hash数据转为UserDTO对象
